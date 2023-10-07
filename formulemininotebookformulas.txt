@@ -92,7 +92,12 @@ public double rtserie(List<double> vals)
 
 }
 
-public double rparalel(double r1, double r2)
+public double rparalelb(double r1, double r2)
+{
+	return div(mult(r1,r2),mult(r1+r2));
+}
+
+public double rparalela(double r1, double r2)
 {
 	return ((r1*r2)/(r1+r2));
 }
