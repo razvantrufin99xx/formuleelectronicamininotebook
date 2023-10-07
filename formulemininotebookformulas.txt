@@ -67,20 +67,20 @@ public double arrayop(List<double> x , string op)
 double counter=0;
 	for(int i = 0 ; i < x.Count;i++)
 	{
-		if(op=="mult" || "*")
+		if(op=="mult" || op=="*")
 		{
 			if(counter==0){counter = 1;}
 			counter=mult(counter,x[i]);			
 		}		
-		else if(op=="add" || "+")
+		else if(op=="add" || op=="+")
 		{
 			counter=add(counter,x[i]);			
 		}
-		else if(op=="div" || "/")
+		else if(op=="div" || op=="/")
 		{
 			counter=div(counter,x[i]);			
 		}
-		else if(op=="dif" || "-")
+		else if(op=="dif" || op=="-")
 		{
 			counter=dif(counter,x[i]);			
 		}
@@ -218,7 +218,7 @@ public bool isNotEqual(double a, double b)
 
 public bool isAproximativelyEqual(double a, double b, double marje)
 {
-	if(Math.Abs(a-b)<marje){return true;}
+	if(difabs(a,b)<marje){return true;}
 	else{return false;}
 }
 
