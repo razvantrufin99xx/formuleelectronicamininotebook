@@ -158,7 +158,176 @@ public double ctparalel(List<double> vals)
 
 }
 
-//pagina 10
+public bool isPositive(double x)
+{
+	if(x>0){return true;}
+	else if(x<0){return false;}
+	else {return false;}
+}
+
+public bool isNegative(double x)
+{
+	if(x<0){return true;}
+	else if(x>0){return false;}
+	else {return false;}
+}
+
+public bool isZero(double x)
+{
+	if(x==0){return true;}
+	else {return false;}
+}
+
+public double changeSign(double x, string s)
+{
+	if(s=="+" && isPositive(x)==true){return x;}		
+	else if(s=="+" && isPositive(x)==false){return x*(-1);}
+	else if(s=="-" && isNegative(x)==true){return x;}
+	else if(s=="-" && isNegative(x)==false){return x*(-1);}
+	else {return error;}
+}
+
+public bool isError(double x)
+{
+	if(x==error){return true;}
+	else {return false;}
+}
+
+public bool isEqual(double a, double b)
+{
+	if(a==b){return true;}
+	else{return false;}
+}
+
+public bool isNotEqual(double a, double b)
+{
+	if(a==b){return false;}
+	else{return true;}
+}
+
+public bool isAproximativelyEqual(double a, double b, double marge)
+{
+	if(Math.Abs(a-b)<marge){return true;}
+	else{return false;}
+}
+
+public bool isGraterThan(double a, double b)
+{
+	if(a>b){return true;}
+	else {return false;
+}
+
+public bool isEqualorGraterThan(double a, double b)
+{
+	if(a>b || a==b){return true;}
+	else {return false;
+}
+
+public bool isLessThan(double a, double b)
+{
+	if(a<b){return true;}
+	else {return false;
+}
+
+public bool isEqualorLessThan(double a, double b)
+{
+	if(a<b || a==b){return true;}
+	else {return false;
+}
+
+public bool reciprocal1pern(double x)
+{
+	return 1/x;
+}
+
+public double squareroot(double x)
+{
+	return Math.Sqrt(x);
+}
+
+//(a/b)^x
+public double expabx(double a, double b, double x)
+{
+	return Math.Pow(div(a/b),x);
+}
+//a^x/b^x
+public double expabx2(double a, double b, double x)
+{
+	return Math.Pow(a,x)/Math.Pow(b,x);
+}
+//a^x/a^y
+public double expaaxy(double a, double x, double y)
+{
+	return Math.Pow(a,x)/Math.Pow(a,y);
+}
+//a^x-y
+public double expaxy(double a, double x, double y)
+{
+	return Math.Pow((a),dif(x,y));
+}
+//a^-x
+public double expaminx(double a, double x)
+{
+	return Math.Pow(a,x);
+}
+//1/a^x
+public double expaminx2(double a, double x)
+{
+	return 1/Math.Pow(a,x);
+}
+
+//(a^x)*(a^y)
+public double expaxmultay(double a, double x,double y)
+{
+	return Math.Pow(a,x)*Math.Pow(a,y);
+}
+//a^x+y
+public double expapowxplusy(double a, double x,double y)
+{
+	return Math.Pow(a,x+y);
+}
+//a^x^y
+public double expapowxpowy(double a, double x,double y)
+{
+	return Math.Pow(a,Math.Pow(x,y);
+}
+//a^x*y
+public double expapowxy(double a, double x,double y)
+{
+	return Math.Pow(a,mult(x,y));
+}
+//a^x/y
+public double expapowxpery(double a, double x,double y)
+{
+	return Math.Pow(a,div(x,y));
+}
+
+//ordin y sqrt a^x 
+public double sqrt2yofapowx(double a, double x,double y)
+{
+	return Math.Sqrt(Math.Pow(a,x));
+}
+
+//db = 10 log(p2/p1)
+public double db2valueP(double p2, double p1)
+{
+	return mult(10,Math.Log(div(p2,p1)));
+}
+
+//dbuin = 10 log(v2/v1)
+public double db2valueVin(double v2, double v1)
+{
+	return mult(20,Math.Log(div(v2,v1)));
+}
+
+//dbiin = 10 log(i2/i1)
+public double db2valueIin(double i2, double i1)
+{
+	return mult(20,Math.Log(div(p2,p1)));
+}
+
+
+
 
 
 
