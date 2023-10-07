@@ -1,7 +1,8 @@
 public double error = 1000000000000000000000;
-
+public string errorMessage = "error";
 public double mult(double a, double b)
 {
+if(a==0 || b==0){System.Console.WriteLine("errorMessage"+"a==0 or b==0");}
 return a*b;
 }
 
@@ -14,7 +15,12 @@ public double dif(double a, double b)
 {
 return a-b;
 }
-
+public double difabs(double a, double b)
+{
+if(a>b){return a-b;}
+else if(b>a){return b-a;}
+else {return 0;}
+}
 
 public double  v(double i, double r)
 {
@@ -210,9 +216,9 @@ public bool isNotEqual(double a, double b)
 	else{return true;}
 }
 
-public bool isAproximativelyEqual(double a, double b, double marge)
+public bool isAproximativelyEqual(double a, double b, double marje)
 {
-	if(Math.Abs(a-b)<marge){return true;}
+	if(Math.Abs(a-b)<marje){return true;}
 	else{return false;}
 }
 
@@ -253,17 +259,17 @@ public double squareroot(double x)
 //(a/b)^x
 public double expabx(double a, double b, double x)
 {
-	return Math.Pow(div(a/b),x);
+	return Math.Pow(div(a,b),x);
 }
 //a^x/b^x
 public double expabx2(double a, double b, double x)
 {
-	return Math.Pow(a,x)/Math.Pow(b,x);
+	return div(Math.Pow(a,x),Math.Pow(b,x));
 }
 //a^x/a^y
 public double expaaxy(double a, double x, double y)
 {
-	return Math.Pow(a,x)/Math.Pow(a,y);
+	return div(Math.Pow(a,x),Math.Pow(a,y));
 }
 //a^x-y
 public double expaxy(double a, double x, double y)
@@ -278,13 +284,13 @@ public double expaminx(double a, double x)
 //1/a^x
 public double expaminx2(double a, double x)
 {
-	return 1/Math.Pow(a,x);
+	return div(1,Math.Pow(a,x));
 }
 
 //(a^x)*(a^y)
 public double expaxmultay(double a, double x,double y)
 {
-	return Math.Pow(a,x)*Math.Pow(a,y);
+	return mult(Math.Pow(a,x),Math.Pow(a,y));
 }
 //a^x+y
 public double expapowxplusy(double a, double x,double y)
