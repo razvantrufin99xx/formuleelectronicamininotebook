@@ -70,11 +70,11 @@ double counter=0;
 		if(op=="mult" || "*")
 		{
 			if(counter==0){counter = 1;}
-			counter*=x[i];			
+			counter=mult(counter,x[i]);			
 		}		
 		else if(op=="add" || "+")
 		{
-			counter+=x[i];			
+			counter=add(counter,x[i]);			
 		}
 		else if(op=="div" || "/")
 		{
@@ -105,12 +105,12 @@ public double rparalelb(double r1, double r2)
 
 public double rparalela(double r1, double r2)
 {
-	return ((r1*r2)/(r1+r2));
+	return div((mult(r1,r2),add(r1,r2)));
 }
 
 public double 1r(double r)
 {
-	return 1/r;
+	return div(1,r);
 }
 public List<double> modif1r(List<double> vals)
 {
@@ -125,13 +125,13 @@ public List<double> modif1r(List<double> vals)
 //rtp = 1/(suma(1/ri))
 public double rparaleln(List<double> vals)
 {
-	return 1/(arrayop(modif1r(vals),"+"))		
+	return div(1,(arrayop(modif1r(vals),"+")))		
 }
 
 
 public double vdiv(double vin, double r1, double r2)
 {
-	return mult(vin,div(r2/(add(r1,r2))));
+	return mult(vin,div(r2,(add(r1,r2))));
 }
 
 public double vac(double i , double z)
@@ -154,12 +154,12 @@ public double pac(double e, double i, double cosfi)
 //ctserie = 1/(suma(1/ci))
 public double cparaleln(List<double> vals)
 {
-	return 1/(arrayop(modif1r(vals),"+"))		
+	return div(1,(arrayop(modif1r(vals),"+")))		
 }
 
 public double cserie(double c1, double c2)
 {
-	return mult(c1,c2)/add(c1,c2);
+	return div(mult(c1,c2),add(c1,c2));
 }
 
 
@@ -192,9 +192,9 @@ public bool isZero(double x)
 public double changeSign(double x, string s)
 {
 	if(s=="+" && isPositive(x)==true){return x;}		
-	else if(s=="+" && isPositive(x)==false){return x*(-1);}
+	else if(s=="+" && isPositive(x)==false){return mult(x,-1);}
 	else if(s=="-" && isNegative(x)==true){return x;}
-	else if(s=="-" && isNegative(x)==false){return x*(-1);}
+	else if(s=="-" && isNegative(x)==false){return mult(x,-1);}
 	else {return error;}
 }
 
@@ -248,7 +248,7 @@ public bool isEqualorLessThan(double a, double b)
 
 public bool reciprocal1pern(double x)
 {
-	return 1/x;
+	return div(1,x);
 }
 
 public double squareroot(double x)
@@ -295,7 +295,7 @@ public double expaxmultay(double a, double x,double y)
 //a^x+y
 public double expapowxplusy(double a, double x,double y)
 {
-	return Math.Pow(a,x+y);
+	return Math.Pow(a,add(x,y));
 }
 //a^x^y
 public double expapowxpowy(double a, double x,double y)
